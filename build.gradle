@@ -28,13 +28,16 @@ tasks.named('test') {
 }
 
 bootJar {
-	enabled = true
-	archiveBaseName.set(project.name)
-
+	archiveClassifier.set('boot')
 	from {
 		configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
 	}
 	launchScript()
+}
+
+jar {
+	enabled = true
+	archiveClassifier.set('plain')
 }
 
 application {
