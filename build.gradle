@@ -2,7 +2,6 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.6.2'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'application'
 }
 
 group = 'com.example'
@@ -27,19 +26,6 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-bootJar {
-	archiveClassifier.set('boot')
-	from {
-		configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-	}
-	launchScript()
-}
-
 jar {
-	enabled = true
-	archiveClassifier.set('plain')
-}
-
-application {
-	mainClass.set("com.example.demo.DemoApplication")
+	enabled = false
 }
