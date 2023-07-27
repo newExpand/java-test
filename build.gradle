@@ -12,6 +12,10 @@ java {
 	targetCompatibility = '11'
 }
 
+bootJar {
+	launchScript()
+}
+
 repositories {
 	mavenCentral()
 }
