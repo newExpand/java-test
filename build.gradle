@@ -27,6 +27,13 @@ tasks.named('test') {
 }
 
 bootJar {
+	enabled = true
+	mainClassName = 'com.example.demo.DemoApplication'
+	archiveBaseName.set("${archiveBaseName.get()}")
+
+	from {
+		configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+	}
 	launchScript()
 }
 
