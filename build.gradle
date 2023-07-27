@@ -36,7 +36,3 @@ bootJar {
 	}
 	launchScript()
 }
-
-tasks.named('jar') {
-	enabled = false
-}
