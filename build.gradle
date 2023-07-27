@@ -12,6 +12,10 @@ java {
 	targetCompatibility = '11'
 }
 
+bootJar {
+	launchScript()
+}
+
 repositories {
 	mavenCentral()
 }
@@ -24,14 +28,4 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
-}
-
-bootJar {
-	archiveBaseName = 'demo'
-	archiveVersion = '0.0.1-SNAPSHOT'
-	enabled = true
-}
-
-tasks.named('jar') {
-	enabled = false
 }
